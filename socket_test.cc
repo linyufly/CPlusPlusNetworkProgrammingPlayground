@@ -57,6 +57,10 @@ void show_ip_test() {
     // Convert the IP to a string and print it.
     inet_ntop(p->ai_family, addr, ipstr, sizeof(char) * kINet6AddrStrLen);
     printf(" %s: %s\n", ipver, ipstr);
+
+    int s = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
+
+    printf("s = %d\n", s);
   }
 
   freeaddrinfo(res);  // Free the linked list.
